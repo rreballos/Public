@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="As6-TP-TlA">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller - SlidingUIView-->
+        <scene sceneID="4">
+            <objects>
+                <viewController id="2" customClass="MainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="aAs-uC-xox">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="xq0-Dx-6ys"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="hU3-Dl-skE"/>
+                                    <outlet property="delegate" destination="2" id="5NQ-3V-FP2"/>
+                                </connections>
+                            </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qzn-FG-agu">
+                                <connections>
+                                    <outlet property="delegate" destination="5" id="Jjs-pp-6sA"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qzn-FG-agu" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="13W-fj-mrd"/>
+                            <constraint firstItem="Qzn-FG-agu" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="2Hw-de-0ib"/>
+                            <constraint firstItem="Qzn-FG-agu" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="DYa-xH-Uab"/>
+                            <constraint firstItem="Qzn-FG-agu" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="Jsf-cE-6t9"/>
+                            <constraint firstItem="aAs-uC-xox" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="ZYu-4V-zuR"/>
+                            <constraint firstItem="aAs-uC-xox" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="cS4-Sg-Yvh"/>
+                            <constraint firstItem="aAs-uC-xox" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="eED-Ee-jR3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="SlidingUIView" id="aFn-qf-B1K"/>
+                    <connections>
+                        <outlet property="mkMapView" destination="Qzn-FG-agu" id="Q1I-NY-ebJ"/>
+                        <outlet property="tableView" destination="aAs-uC-xox" id="fgI-0q-X95"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="-151"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7sb-UM-u7n">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="As6-TP-TlA" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="BPQ-mW-86Q">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="ng0-e2-4fA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFu-vV-Wub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="-151"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mkMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
